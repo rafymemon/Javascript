@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM(Document Object Model) Manipulation</title>
+    <style>
+        body{
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-black">
+        <h1 id="title" class="heading">DOM Learning on chai aur code</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore distinctio iure unde architecto perspiciatis
+            aspernatur!</p>
+
+    </div>
+    <h1>hey</h1>
+    <h1>Hello</h1>
+    <h1>Hola</h1>
+    <h1>Nihao</h1>
+    <h1>Namashkar</h1>
+
+
+
+    <script>
+       var a =  document.getElementById('title') //Retrieve element by its id
+       //console.log(a)
+
+      //var b = document.getElementById('title').className
+      //console.log(b)
+      //Other attributes
+    //   document.getElementById('title').getAttribute('id') 
+    //   document.getElementById('title').getAttribute('class')  
+    document.getElementById('title').setAttribute('class', 'test heading') // Used to set the attribute
+        // console.log(a)
+        const title = document.getElementById('title')
+        title.style.backgroundColor = 'green'
+        title.style.padding = '15px'
+        title.style.borderRadius = '15px'
+
+        // console.log(title.textContent) // Display every text wether deleted
+        // console.log(title.innerHTML);
+        console.log(title.innerText);
+        
+
+        document.querySelector('h1') //Display the first h1 on the page
+        //document.querySelectorAll('h1') //Display every h1 tag present in the document
+ 
+        document.querySelectorAll('h1').forEach(function(e){
+             console.log(e)
+            })
+
+        
+    </script>
+</body>
+
+</html>
