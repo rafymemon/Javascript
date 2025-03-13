@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Inerval and clear Interval</title>
+</head>
+<body>
+    <h1>Asynchronous Javascript</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+
+
+
+</body>
+<script>
+    const sayDate = (str) => {
+        console.log(str, Date.now());
+        
+    }
+
+    let start;
+
+    document.querySelector("#start").addEventListener('click', ()=> {
+        start = setInterval(sayDate, 1000, "Hey Setinterval is working")
+        console.log("started");
+    })
+   
+
+   document.querySelector("#stop").addEventListener('click', () => {
+    clearInterval(start);
+    console.log("stopped");
+   })
+
+</script>
+</html>

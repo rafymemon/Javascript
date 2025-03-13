@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous</title>
+</head>
+<body>
+    <h3>Asynchronous Javascript</h3>
+    <button id="button">stop</button>
+</body>
+<script>
+    // setTimeout(function() {
+    //     console.log("Hey there, I am a message from setTimeout");
+        
+    // }, 2000)
+    const setMessage = () => {
+        console.log("Hey there, I am a message from setTimeout");
+        
+    }
+
+   const stoptheMessage = setTimeout(setMessage, 2000);
+
+   document.querySelector('#button').addEventListener('click', () => {
+        clearTimeout(stoptheMessage);
+        console.log("stopped");
+        
+   })
+
+</script>
+</html>

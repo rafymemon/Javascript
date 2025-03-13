@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="Head">  
+        <h1 id="heading1">User Card</h1>
+        <div class="card">
+            Click to Display User Card
+        </div>
+        <button id="showCard">Show User Card</button>
+        
+    </div>   
+</body>
+<script>
+
+const showCard=document.getElementById('showCard');
+showCard.addEventListener('click',displayCard);
+
+function displayCard()
+{
+const requestUrl='https://api.github.com/users/hiteshchoudhary'
+const xhr=new XMLHttpRequest();
+xhr.open('GET',requestUrl);
+let followers;
+let imageurl;
+let userName;
+xhr.onreadystatechange=function(){
+    if(xhr.readyState==4)
+{
+    const data=JSON.parse(this.responseText);
+    console.log(data);
+    // console.log(typeof(this.response));
+    // console.log(typeof(data));
+    followers=data.followers;
+    imageurl=data.avatar_url;
+    userName=data.name;
+}
+    // console.log(followers);
+    // console.log(imageurl);
+    // console.log(userName);
+    const card=document.querySelector('.card');
+    card.innerHTML=`
+     <div class="card" >
+        <img src="${imageurl}" alt="Avatar" style="width:30%">
+        <div class="container">
+         <h4><b>${userName}</b></h4>
+         <p>Number of Followers:${followers}</p>
+        </div>
+        </div> 
+    `
+    // console.log(xhr.readyState);
+}
+xhr.send();
+showCard.disabled=true;
+}
+
+</script>
+</html>
